@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="8dp"
+      android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/label"
+          android:layout_width="match_parent"
+          android:gravity="center"
+          android:layout_height="wrap_content"
+          android:padding="10dp"
+          android:text="Admin"
+          android:textSize="20dp">
+      </TextView>
+
+      <Spinner
+          android:id="@+id/listItemKelas"
+          style="@style/SpinnerItem"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/dropdownListPreferredItemHeight"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
+
+      <Spinner
+          android:id="@+id/listItemMapel"
+          style="@style/SpinnerItem"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/dropdownListPreferredItemHeight"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
+
+      <RadioGroup
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:orientation="horizontal"
+          android:checkedButton="@+id/guru">
+          <RadioButton
+              android:id="@+id/guru"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Guru">
+          </RadioButton>
+
+          <RadioButton
+              android:id="@+id/siswa"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Siswa">
+            </RadioButton>
+      </RadioGroup>
+
+      <Spinner
+        android:id="@+id/listItemGuru"
+        style="@style/SpinnerItem"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+      <Spinner
+        android:id="@+id/listItemSiswa"
+        style="@style/SpinnerItem"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+      <Button
+          android:id="@+id/submit"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          android:text="Hadir"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:gravity="center_horizontal"
+      android:layout_gravity="bottom|end|right"
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        app:fab_size="mini"
+        app:menu_backgroundColor="@android:color/transparent"
+        app:fab_colorNormal="@color/colorAccent"
+        app:menu_colorPressed="#FF00786D"
+        app:menu_icon="@drawable/add"
+        app:menu_labels_colorNormal="#FFFFFF"
+        app:menu_labels_colorPressed="#BDBDBD"
+        app:menu_labels_showShadow="true"
+        app:menu_labels_textColor="#000000"
+        app:menu_openDirection="up"
+        app:menu_showShadow="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginRight="16dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/add_kelas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="#FF00786D"
+            app:fab_label="Add Kelas"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/add_mapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="#FF00786D"
+            app:fab_label="Add Mapel"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/add_guru_siswa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="#FF00786D"
+            app:fab_label="Add Guru/Siswa"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/add_daftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="#FF00786D"
+            app:fab_label="Add Daftar Kelas dan Mapel"
+            app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

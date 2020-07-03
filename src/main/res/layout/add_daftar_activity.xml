@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="8dp"
+      android:orientation="vertical">
+      <Spinner
+          android:id="@+id/listItemKelas"
+          style="@style/SpinnerItem"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/dropdownListPreferredItemHeight"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
+
+      <Spinner
+          android:id="@+id/listItemMapel"
+          style="@style/SpinnerItem"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/dropdownListPreferredItemHeight"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
+
+      <RadioGroup
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:orientation="horizontal"
+          android:checkedButton="@+id/guru">
+          <RadioButton
+              android:id="@+id/guru"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Guru">
+          </RadioButton>
+
+          <RadioButton
+              android:id="@+id/siswa"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Siswa">
+            </RadioButton>
+      </RadioGroup>
+
+      <Spinner
+        android:id="@+id/listItemGuru"
+        style="@style/SpinnerItem"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+      <Spinner
+        android:id="@+id/listItemSiswa"
+        style="@style/SpinnerItem"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+      <Button
+          android:id="@+id/simpan"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          android:text="Simpan"/>
+
+  </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
