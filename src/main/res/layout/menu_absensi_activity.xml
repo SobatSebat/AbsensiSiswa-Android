@@ -96,7 +96,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
       <Button
-          android:id="@+id/submit"
+          android:id="@+id/hadir"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
@@ -124,8 +124,8 @@
         android:layout_gravity="right"
         app:fab_size="mini"
         app:menu_backgroundColor="@android:color/transparent"
-        app:fab_colorNormal="@color/colorAccent"
-        app:menu_colorPressed="#FF00786D"
+        app:menu_colorNormal="@color/colorAccent"
+        app:menu_colorPressed="@color/colorAccentDark"
         app:menu_icon="@drawable/add"
         app:menu_labels_colorNormal="#FFFFFF"
         app:menu_labels_colorPressed="#BDBDBD"
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add"
             app:fab_colorNormal="@color/colorAccent"
-            app:fab_colorPressed="#FF00786D"
+            app:fab_colorPressed="@color/colorAccentDark"
             app:fab_label="Add Kelas"
             app:fab_size="mini" />
 
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add"
             app:fab_colorNormal="@color/colorAccent"
-            app:fab_colorPressed="#FF00786D"
+            app:fab_colorPressed="@color/colorAccentDark"
             app:fab_label="Add Mapel"
             app:fab_size="mini" />
 
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add"
             app:fab_colorNormal="@color/colorAccent"
-            app:fab_colorPressed="#FF00786D"
+            app:fab_colorPressed="@color/colorAccentDark"
             app:fab_label="Add Guru/Siswa"
             app:fab_size="mini" />
 
@@ -172,8 +172,121 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add"
             app:fab_colorNormal="@color/colorAccent"
-            app:fab_colorPressed="#FF00786D"
+            app:fab_colorPressed="@color/colorAccentDark"
             app:fab_label="Add Daftar Kelas dan Mapel"
+            app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </LinearLayout>
+
+  <LinearLayout
+      android:gravity="center_horizontal"
+      android:layout_gravity="bottom|end|left"
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="left"
+        app:fab_size="mini"
+        app:menu_labels_position="right"
+        app:menu_backgroundColor="@android:color/transparent"
+        app:menu_colorNormal="@color/colorPrimary"
+        app:menu_colorPressed="@color/colorPrimaryDark"
+        app:menu_icon="@drawable/list"
+        app:menu_labels_colorNormal="#FFFFFF"
+        app:menu_labels_colorPressed="#BDBDBD"
+        app:menu_labels_showShadow="true"
+        app:menu_labels_textColor="#000000"
+        app:menu_openDirection="up"
+        app:menu_showShadow="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="16dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_kelas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Kelas"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_mapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Mapel"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_guru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Guru"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_siswa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Siswa"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_daftar_guru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Daftar Tempat Guru"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_daftar_siswa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Daftar Tempat Siswa"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_report_guru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Report Guru"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/list_report_siswa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_label="List Report Siswa"
             app:fab_size="mini" />
 
         </com.github.clans.fab.FloatingActionMenu>

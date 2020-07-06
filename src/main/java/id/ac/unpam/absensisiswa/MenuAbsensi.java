@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.RadioButton;
 import android.widget.Button;
+import android.widget.Toast;
 import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
@@ -35,11 +36,21 @@ public class MenuAbsensi extends AppCompatActivity {
 	private Spinner listItemSiswa = null;
 	private RadioButton guru = null;
 	private RadioButton siswa = null;
+	private Button hadir = null;
 	private FloatingActionMenu menu = null;
+	private FloatingActionMenu menu_list = null;
 	private FloatingActionButton add_kelas = null;
 	private FloatingActionButton add_mapel = null;
 	private FloatingActionButton add_guru_siswa = null;
 	private FloatingActionButton add_daftar = null;
+	private FloatingActionButton list_kelas = null;
+	private FloatingActionButton list_mapel = null;
+	private FloatingActionButton list_guru = null;
+	private FloatingActionButton list_siswa = null;
+	private FloatingActionButton list_daftar_guru = null;
+	private FloatingActionButton list_daftar_siswa = null;
+	private FloatingActionButton list_report_guru = null;
+	private FloatingActionButton list_report_siswa = null;
 	private ArrayList<ItemClass> itemsKelas, itemsMapel, itemsGuru, itemsSiswa;
 	private ItemAdapter itemAdapterKelas, itemAdapterMapel, itemAdapterGuru, itemAdapterSiswa;
 	private boolean guru_siswa = true;
@@ -90,12 +101,22 @@ public class MenuAbsensi extends AppCompatActivity {
 
 		guru = (RadioButton)findViewById(R.id.guru);
 		siswa = (RadioButton)findViewById(R.id.siswa);
+		hadir = (Button)findViewById(R.id.hadir);
 		menu = (FloatingActionMenu)findViewById(R.id.menu);
 
 		add_kelas = (FloatingActionButton)findViewById(R.id.add_kelas);
 		add_mapel = (FloatingActionButton)findViewById(R.id.add_mapel);
 		add_guru_siswa = (FloatingActionButton)findViewById(R.id.add_guru_siswa);
 		add_daftar = (FloatingActionButton)findViewById(R.id.add_daftar);
+
+		list_kelas = (FloatingActionButton)findViewById(R.id.list_kelas);
+		list_mapel = (FloatingActionButton)findViewById(R.id.list_mapel);
+		list_guru = (FloatingActionButton)findViewById(R.id.list_guru);
+		list_siswa = (FloatingActionButton)findViewById(R.id.list_siswa);
+		list_daftar_guru = (FloatingActionButton)findViewById(R.id.list_daftar_guru);
+		list_daftar_siswa = (FloatingActionButton)findViewById(R.id.list_daftar_siswa);
+		list_report_guru = (FloatingActionButton)findViewById(R.id.list_report_guru);
+		list_report_siswa = (FloatingActionButton)findViewById(R.id.list_report_siswa);
 
 		itemAdapterKelas = new ItemAdapter(this, android.R.layout.simple_spinner_item, itemsKelas);
 		itemAdapterKelas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -137,21 +158,56 @@ public class MenuAbsensi extends AppCompatActivity {
 				try{
 					if(data.getBoolean("success")){
 						label.setText(data.getString("data"));
-						if(!data.getString("data").equals("Admin")){
+						if(data.getString("data").equals("Guru")){
 							menu.setVisibility(View.GONE);
 							guru.setVisibility(View.GONE);
 							siswa.setVisibility(View.GONE);
 							listItemGuru.setVisibility(View.GONE);
 							listItemSiswa.setVisibility(View.VISIBLE);
+							list_kelas.setVisibility(View.GONE);
+							list_mapel.setVisibility(View.GONE);
+							list_guru.setVisibility(View.GONE);
+							list_siswa.setVisibility(View.GONE);
+							list_daftar_guru.setVisibility(View.GONE);
+							list_daftar_siswa.setVisibility(View.GONE);
 							guru_siswa = false;
 							guruForm();
 							admin_guru = 2;
+							list_report_guru.setOnClickListener(new View.OnClickListener(){
+								@Override
+								public void onClick(View v){
+									Intent i = new Intent(MenuAbsensi.this, MenuReport.class);
+									i.putExtra("MODE", 4);
+									startActivity(i);
+								}
+							});
+
+							list_report_siswa.setOnClickListener(new View.OnClickListener(){
+								@Override
+								public void onClick(View v){
+									Intent i = new Intent(MenuAbsensi.this, MenuReport.class);
+									i.putExtra("MODE", 5);
+									startActivity(i);
+								}
+							});
 						}
 						else if(data.getString("data").equals("Admin")){
 							floatingMenu();
 							adminForm();
 							guru_siswa = true;
 							admin_guru = 1;
+						}
+						else if(data.getString("data").equals("Siswa")){
+							menu.setVisibility(View.GONE);
+							guru.setVisibility(View.GONE);
+							siswa.setVisibility(View.GONE);
+							listItemGuru.setVisibility(View.GONE);
+							listItemSiswa.setVisibility(View.VISIBLE);
+							guru_siswa = false;
+							Intent i = new Intent(MenuAbsensi.this, MenuReport.class);
+							i.putExtra("MODE", 3);
+							startActivity(i);
+							finish();
 						}
 					}
 				}
@@ -161,6 +217,31 @@ public class MenuAbsensi extends AppCompatActivity {
 			@Override
 			public void onError(){}
 		})).execute();
+
+		hadir.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				int id = daftar.getId();
+				if(id <= 0)
+					return;
+
+				(new CoreAPI(MenuAbsensi.this, setting.getUrlCreateAbsen(), "kmu_id=" + id, new HandlerAPI(){
+					@Override
+					public void onReceive(JSONObject data){
+						try{
+							if(data.getBoolean("success")){
+								Toast.makeText(MenuAbsensi.this, "Berhasil!", Toast.LENGTH_LONG).show();
+								onResume();
+							}
+						}
+						catch(Exception e){}
+					}
+
+					@Override
+					public void onError(){}
+				})).execute();
+			}
+		});
 	}
 
 	public class Daftar {
@@ -495,6 +576,77 @@ public class MenuAbsensi extends AppCompatActivity {
 			}
 		});
 
+		list_kelas.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_KELAS_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_mapel.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_MAPEL_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_guru.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_GURU_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_siswa.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_SISWA_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_daftar_guru.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_DAFTAR_GURU_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_daftar_siswa.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, ListActivity.class);
+				i.putExtra("MODE", ListActivity.MODE_DAFTAR_SISWA_VIEW);
+				startActivity(i);
+			}
+		});
+
+		list_report_guru.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, MenuReport.class);
+				i.putExtra("MODE", 1);
+				startActivity(i);
+			}
+		});
+
+		list_report_siswa.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent i = new Intent(MenuAbsensi.this, MenuReport.class);
+				i.putExtra("MODE", 2);
+				startActivity(i);
+			}
+		});
 	}
 
 	@Override

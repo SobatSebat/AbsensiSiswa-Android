@@ -17,11 +17,11 @@ public class ItemClass {
     return this.txt;
   }
 
-  public void getId(int id){
+  public void setId(int id){
     this.id = id;
   }
 
-  public void getTxt(String txt){
+  public void setTxt(String txt){
     this.txt = txt;
   }
 }

@@ -88,6 +88,14 @@ public class Setting {
     return getServerPort() + "/api/" + getToken() + "/label";
   }
 
+  public String getUrlGuru(){
+    return getServerPort() + "/api/" + getToken() + "/guru";
+  }
+
+  public String getUrlSiswa(){
+    return getServerPort() + "/api/" + getToken() + "/siswa";
+  }
+
   public String getUrlKelas(){
     return getServerPort() + "/api/" + getToken() + "/kelas";
   }
@@ -124,6 +132,22 @@ public class Setting {
     return getServerPort() + "/api/" + getToken() + "/kmu/siswa/" + kelas_id + "/" + mapel_id;
   }
 
+  public String getUrlKMUAllGuru(){
+    return getServerPort() + "/api/" + getToken() + "/kmu/all/guru";
+  }
+
+  public String getUrlKMUAllGuru(int id){
+    return getServerPort() + "/api/" + getToken() + "/kmu/all/guru/" + id;
+  }
+
+  public String getUrlKMUAllSiswa(){
+    return getServerPort() + "/api/" + getToken() + "/kmu/all/siswa";
+  }
+
+  public String getUrlKMUAllSiswa(int id){
+    return getServerPort() + "/api/" + getToken() + "/kmu/all/siswa/" + id;
+  }
+
   public String getUrlKMUGuruSiswaNotOn(int kelas_id, int mapel_id){
     return getServerPort() + "/api/" + getToken() + "/kmu/guru_siswa/noton/" + kelas_id + "/" + mapel_id;
   }
@@ -148,6 +172,14 @@ public class Setting {
     return getServerPort() + "/api/" + getToken() + "/kmu/mapel/" + user_id + "/" + kelas_id;
   }
 
+  public String getUrlAbsenGuru(int user_id, int kelas_id, int mapel_id){
+    return getServerPort() + "/api/" + getToken() + "/absen/guru/" + user_id + "/" + kelas_id + "/" + mapel_id;
+  }
+
+  public String getUrlAbsenSiswa(int user_id, int kelas_id, int mapel_id){
+    return getServerPort() + "/api/" + getToken() + "/absen/siswa/" + user_id + "/" + kelas_id + "/" + mapel_id;
+  }
+
   public String getUrlCreateKelas(){
     return getServerPort() + "/api/" + getToken() + "/create/kelas";
   }
@@ -166,6 +198,10 @@ public class Setting {
 
   public String getUrlCreateKMU(){
     return getServerPort() + "/api/" + getToken() + "/create/kmu";
+  }
+
+  public String getUrlCreateAbsen(){
+    return getServerPort() + "/api/" + getToken() + "/create/absen";
   }
 
 }
