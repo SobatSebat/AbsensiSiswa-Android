@@ -327,7 +327,7 @@ public class MenuAbsensi extends AppCompatActivity {
 					listItemSiswa.setAdapter(itemAdapterSiswa);
 					daftar.setKelasId(item.getId());
 
-					(new CoreAPI(MenuAbsensi.this, setting.getUrlKMUGuruSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
+					(new CoreAPI(MenuAbsensi.this, setting.getUrlAbsenGuruSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
 						@Override
 						public void onReceive(JSONObject data){
 							itemsGuru.clear();
@@ -373,7 +373,7 @@ public class MenuAbsensi extends AppCompatActivity {
 					listItemSiswa.setAdapter(itemAdapterSiswa);
 					daftar.setMapelId(item.getId());
 
-					(new CoreAPI(MenuAbsensi.this, setting.getUrlKMUGuruSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
+					(new CoreAPI(MenuAbsensi.this, setting.getUrlAbsenGuruSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
 						@Override
 						public void onReceive(JSONObject data){
 							itemsGuru.clear();
@@ -506,7 +506,7 @@ public class MenuAbsensi extends AppCompatActivity {
 					listItemSiswa.setAdapter(itemAdapterSiswa);
 					daftar.setMapelId(item.getId());
 
-					(new CoreAPI(MenuAbsensi.this, setting.getUrlKMUSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
+					(new CoreAPI(MenuAbsensi.this, setting.getUrlAbsenSiswa(daftar.getKelasId(), daftar.getMapelId()), new HandlerAPI(){
 						@Override
 						public void onReceive(JSONObject data){
 							itemsSiswa.clear();

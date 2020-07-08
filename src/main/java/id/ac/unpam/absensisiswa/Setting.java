@@ -180,6 +180,18 @@ public class Setting {
     return getServerPort() + "/api/" + getToken() + "/absen/siswa/" + user_id + "/" + kelas_id + "/" + mapel_id;
   }
 
+  public String getUrlAbsenGuruSiswa(int kelas_id, int mapel_id){
+    return getServerPort() + "/api/" + getToken() + "/absen/get/guru_siswa/" + kelas_id + "/" + mapel_id;
+  }
+
+  public String getUrlAbsenGuru(int kelas_id, int mapel_id){
+    return getServerPort() + "/api/" + getToken() + "/absen/get/guru/" + kelas_id + "/" + mapel_id;
+  }
+
+  public String getUrlAbsenSiswa(int kelas_id, int mapel_id){
+    return getServerPort() + "/api/" + getToken() + "/absen/get/siswa/" + kelas_id + "/" + mapel_id;
+  }
+
   public String getUrlCreateKelas(){
     return getServerPort() + "/api/" + getToken() + "/create/kelas";
   }
